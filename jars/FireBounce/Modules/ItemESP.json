@@ -1,0 +1,13 @@
+{
+  "toggled": false,
+  "key": 0,
+  "settings": [
+    {
+      "Red": 255.0,
+      "Green": 0.0,
+      "Blue": 0.0,
+      "Alpha": 100.0,
+      "MOD": "Box"
+    }
+  ]
+}

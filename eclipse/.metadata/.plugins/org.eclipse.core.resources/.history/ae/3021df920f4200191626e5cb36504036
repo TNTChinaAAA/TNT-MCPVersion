@@ -1,0 +1,11 @@
+package net.tntchina.client.mod;
+
+import java.io.IOException;
+import net.minecraftforge.fml.common.asm.transformers.AccessTransformer;
+
+public class TNTChinaAccessTransformer extends AccessTransformer {
+
+	public TNTChinaAccessTransformer() throws IOException {
+		super("tnt_at.cfg");
+	}
+}

@@ -1,0 +1,84 @@
+package Mixin.mixins;
+
+import java.util.List;
+
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import Mixin.impl.IEntityPlayerSP;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockFence;
+import net.minecraft.block.BlockFenceGate;
+import net.minecraft.block.BlockWall;
+import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.AbstractClientPlayer;
+import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.crash.CrashReport;
+import net.minecraft.crash.CrashReportCategory;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.EnumCreatureAttribute;
+import net.minecraft.entity.IEntityMultiPart;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.boss.EntityDragonPart;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+import net.minecraft.network.play.server.S12PacketEntityVelocity;
+import net.minecraft.potion.Potion;
+import net.minecraft.stats.AchievementList;
+import net.minecraft.stats.StatList;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.MovementInput;
+import net.minecraft.util.ReportedException;
+import net.minecraftforge.common.ForgeHooks;
+import net.tntchina.client.event.EventManager;
+import net.tntchina.client.event.events.LivingUpdateEvent;
+import net.tntchina.client.event.events.MotionUpdateEvent;
+import net.tntchina.client.event.events.MoveEvent;
+import net.tntchina.client.event.events.SafeWalkEvent;
+import net.tntchina.client.event.events.UpdateEvent;
+import net.tntchina.client.event.events.UpdatePostEvent;
+import net.tntchina.client.event.events.UpdatePreEvent;
+import net.tntchina.client.event.events.VelocityEvent;
+import net.tntchina.client.module.Module;
+import net.tntchina.client.module.ModuleManager;
+import net.tntchina.client.module.modules.combat.Velocity;
+import net.tntchina.client.module.modules.movement.BugUp;
+import net.tntchina.client.module.modules.movement.Climb;
+import net.tntchina.client.module.modules.movement.HighJump;
+import net.tntchina.client.module.modules.movement.KeepSprint;
+import net.tntchina.client.module.modules.movement.NoSlow;
+import net.tntchina.client.module.modules.player.HitBox;
+import net.tntchina.client.module.modules.player.NoHungry;
+
+@Mixin(EntityPlayerSP.class)
+public abstract class MixinEntityPlayerSP extends AbstractClientPlayer implements IEntityPlayerSP {
+
+	private int cacheSprintToggleTimer = 0;
+	private float cacheStrafe = 0.0F, cacheForward = 0.0F, cacheYaw = 0.0F, cachePitch = 0.0F;
+
+	public boolean moving() {
+		return this.moveForward > 0.0 | this.moveStrafing > 0.0;
+	}
+
+	public float getSpeed() {
+		final float vel = (float) Math.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
+		return vel;
+	}
+	
+	public void setSpeed(final double speed) {
+        this.motionX = -MathHelper.sin(this.getDirection()) * speed;
+        this.motionZ = MathHelper.cos(this.getDirection()) * speed;
+    }
+
+}

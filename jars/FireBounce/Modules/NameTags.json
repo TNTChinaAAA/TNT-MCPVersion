@@ -1,0 +1,18 @@
+{
+  "toggled": true,
+  "key": 0,
+  "settings": [
+    {
+      "Show Armor": true,
+      "Show Dura": true,
+      "Potions": true,
+      "Invisibles": true,
+      "Animals": false,
+      "Players": true,
+      "R": 100.0,
+      "G": 100.0,
+      "B": 100.0,
+      "Scale": 0.5
+    }
+  ]
+}

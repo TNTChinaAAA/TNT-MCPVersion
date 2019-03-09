@@ -1,0 +1,45 @@
+package Mixin.mixins;
+
+import org.apache.logging.log4j.Logger;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.Display;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import net.minecraft.client.Minecraft;
+import net.minecraft.util.BlockPos;
+import net.tntchina.client.event.EventManager;
+import net.tntchina.client.event.events.BreakBlockEvent;
+import net.tntchina.client.event.events.ClientPostStartingEvent;
+import net.tntchina.client.event.events.ClientPreStartingEvent;
+import net.tntchina.client.event.events.KeyEvent;
+import net.tntchina.client.event.events.RightEvent;
+import net.tntchina.client.main.TNTChina;
+import net.tntchina.client.module.ModuleManager;
+import net.tntchina.client.module.modules.world.FastPlace;
+import net.tntchina.client.tabgui.TabManager;
+import net.tntchina.client.util.injectorUtil.MinecraftUtil;
+
+@Mixin(Minecraft.class)
+public abstract class MixinMinecraft {
+
+	
+	@Inject(method = "rightClickMouse", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/InventoryPlayer;getCurrentItem()Lnet/minecraft/item/ItemStack;"), cancellable = true)
+	public void rightClickMouse(CallbackInfo callbackInfo) {
+		if (ModuleManager.getModuleState(FastPlace.class)) {
+			Minecraft.getMinecraft().rightClickDelayTimer = 1;
+		}
+		
+		if (Minecraft.getMinecraft().objectMouseOver != null) {
+			EventManager.callEvent(new RightEvent());
+		}
+	}
+	
+	@Inject(method = "clickMouse", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/multiplayer/PlayerControllerMP;clickBlock(Lnet/minecraft/util/BlockPos;Lnet/minecraft/util/EnumFacing;)Z", shift = At.Shift.BEFORE))
+	public void onBlockBreak(CallbackInfo callbackInfo) {
+		BlockPos blockpos = Minecraft.getMinecraft().objectMouseOver.getBlockPos();
+		EventManager.callEvent(new BreakBlockEvent(Minecraft.getMinecraft().theWorld.getBlockState(blockpos).getBlock(), blockpos, Minecraft.getMinecraft().objectMouseOver.sideHit));
+	}
+}

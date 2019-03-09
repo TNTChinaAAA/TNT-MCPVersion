@@ -1,0 +1,75 @@
+package Mixin.mixins;
+
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Overwrite;
+import org.spongepowered.asm.mixin.Shadow;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.GuiSlot;
+import net.minecraft.client.gui.ScaledResolution;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.WorldRenderer;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.tntchina.client.util.MathHelper;
+
+@Mixin(GuiSlot.class)
+public abstract class MixinGuiSlot {
+	
+	@Shadow
+	protected boolean field_178041_q;
+	
+	@Shadow
+	protected int mouseX, mouseY;
+	
+	@Shadow
+    public int width;
+	
+	@Shadow
+    public int height;
+
+	@Shadow
+	public int top;
+
+	@Shadow
+	public int bottom;
+	
+	@Shadow
+    public int right;
+    
+	@Shadow
+	public int left;
+	
+	@Shadow
+	public boolean hasListHeader;
+	
+	@Shadow
+	public float amountScrolled;
+	
+	@Overwrite
+
+	
+	@Shadow
+	public abstract void drawSelectionBox(int k, int i, int mouseXIn, int j);
+	
+	@Shadow
+	public abstract void drawListHeader(int k, int l, Tessellator tessellator);
+	
+	@Shadow
+	public abstract int getContentHeight();
+
+	@Shadow
+	public abstract void func_148142_b(int mouseXIn, int mouseYIn);
+
+	@Shadow
+	public abstract void bindAmountScrolled();
+
+	@Shadow
+	public abstract int getScrollBarX();
+	
+	@Shadow
+	public abstract int getListWidth();
+	
+	@Shadow
+	public abstract int func_148135_f();
+}

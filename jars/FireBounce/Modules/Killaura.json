@@ -1,0 +1,30 @@
+{
+  "toggled": false,
+  "key": 0,
+  "settings": [
+    {
+      "AutoBlock": true,
+      "Reach": 3.8,
+      "Gomme": true,
+      "SlowDown": false,
+      "AttackDelay": 120.0,
+      "Delay": 1.0,
+      "Random": true,
+      "AttackPlayers": true,
+      "AttackAnimals": true,
+      "AttackMobs": true,
+      "RayTrace": true,
+      "BlockRayTrace": true,
+      "Rotations": true,
+      "LookView": false,
+      "switchDelay": 2.0,
+      "Targets": 2.0,
+      "NoSwing": false,
+      "StartDelay": true,
+      "AttackInInventory": true,
+      "AttackInvisibles": false,
+      "ESP": "Box",
+      "MOD": "Switch"
+    }
+  ]
+}

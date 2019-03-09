@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="getStringWidth" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="getStringWidth"/>
+			<item value="drawScreen"/>
+			<item value="drawSc"/>
+			<item value="draw"/>
+			<item value="Strings"/>
+			<item value="sendChatMe"/>
+			<item value="sendChat"/>
+			<item value="send"/>
+			<item value="  if(msg.startsWith(&quot;.&quot;)) {"/>
+			<item value="readFromNBT"/>
+			<item value="isItemDamag"/>
+			<item value="isItemDamageable"/>
+			<item value="clickMouse"/>
+			<item value="right"/>
+			<item value="rightMouse"/>
+		</list>
+		<list key="replacehistory">
+			<item value="this"/>
+			<item value="public"/>
+			<item value="onGround"/>
+			<item value=""/>
+			<item value="@EventTarget"/>
+			<item value="7"/>
+			<item value="getState"/>
+			<item value="ToggledModule"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="337" key="DIALOG_WIDTH"/>
+		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
+		<item value="496" key="DIALOG_HEIGHT"/>
+		<item value="9" key="DIALOG_X_ORIGIN"/>
+		<item value="9" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

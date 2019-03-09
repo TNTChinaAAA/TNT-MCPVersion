@@ -1,0 +1,12 @@
+{
+  "toggled": false,
+  "key": 0,
+  "settings": [
+    {
+      "Range": 2.0,
+      "Delay": 2.0,
+      "Look": true,
+      "ThroughBlocks": false
+    }
+  ]
+}

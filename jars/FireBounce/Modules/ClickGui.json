@@ -1,0 +1,14 @@
+{
+  "toggled": false,
+  "key": 54,
+  "settings": [
+    {
+      "Sound": false,
+      "GuiRed": 255.0,
+      "GuiGreen": 26.0,
+      "GuiBlue": 42.0,
+      "Rainbow": true,
+      "MOD": "FireBounce"
+    }
+  ]
+}

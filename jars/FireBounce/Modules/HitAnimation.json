@@ -1,0 +1,21 @@
+{
+  "toggled": false,
+  "key": 0,
+  "settings": [
+    {
+      "Translate": true,
+      "translateX": 0.0,
+      "translateY": 0.0,
+      "translateZ": 0.0,
+      "Scale": false,
+      "scaleX": 1.0,
+      "scaleY": 1.0,
+      "scaleZ": 1.0,
+      "Rotate": false,
+      "rotateAngle": -1000.0,
+      "rotateX": -50.0,
+      "rotateY": -50.0,
+      "rotateZ": -180.0
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "toggled": true,
+  "key": 0,
+  "settings": [
+    {
+      "Draw": "Left",
+      "Background": true,
+      "BackgroundAlpha": 100.0,
+      "ToggleRed": 0.0,
+      "ToggleGreen": 0.0,
+      "ToggleBlue": 255.0,
+      "Rainbow": true
+    }
+  ]
+}

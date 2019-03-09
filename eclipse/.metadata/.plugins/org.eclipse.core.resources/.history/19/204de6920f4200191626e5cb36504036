@@ -1,0 +1,43 @@
+package net.tntchina.client.mod;
+
+import java.util.Map;
+import org.spongepowered.asm.launch.MixinBootstrap;
+import org.spongepowered.asm.mixin.MixinEnvironment;
+import org.spongepowered.asm.mixin.Mixins;
+
+import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
+import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin.MCVersion;
+import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin.TransformerExclusions;
+import net.tntchina.client.inputFix.InputFixSetup;
+import net.tntchina.client.inputFix.InputFixTransformer;
+
+@TransformerExclusions("net.tntchina.client.mod.")
+@MCVersion("1.8.9")
+public class TNTChinaCoreMod implements IFMLLoadingPlugin {
+
+	public TNTChinaCoreMod() {
+		MixinBootstrap.init();
+		Mixins.addConfiguration("Client.json");
+		MixinEnvironment.getDefaultEnvironment().setSide(MixinEnvironment.Side.CLIENT);
+	}
+	
+	public String[] getASMTransformerClass() {
+		return new String[]{ InputFixTransformer.class.getName() };
+	}
+
+	public String getModContainerClass() {
+		return ModContainer.class.getName();
+	}
+
+	public String getSetupClass() {
+		return InputFixSetup.class.getName();
+	}
+
+	public void injectData(Map<String, Object> data) {
+		
+	}
+
+	public String getAccessTransformerClass() {
+		return TNTChinaAccessTransformer.class.getName();
+	}
+}

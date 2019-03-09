@@ -1,0 +1,6 @@
+package net.minecraftforge.fml.relauncher;
+
+public interface IFMLCallHook {
+
+	Void call() throws Exception;
+}

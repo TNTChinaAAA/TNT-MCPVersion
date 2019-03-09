@@ -1,0 +1,22 @@
+package Mixin.mixins;
+
+import org.spongepowered.asm.mixin.*;
+import com.google.common.base.Splitter;
+import com.google.common.collect.Lists;
+import net.minecraft.client.gui.*;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.util.ResourceLocation;
+import net.tntchina.client.util.GuiUtil;
+
+@Mixin(GuiMultiplayer.class)
+public abstract class MixinGuiMultiplayer extends GuiScreen implements GuiYesNoCallback {
+	
+	@Shadow
+	private ServerSelectionList serverListSelector;
+	
+	@Shadow
+	private String hoveringText;
+	
+	@Overwrite
+
+}

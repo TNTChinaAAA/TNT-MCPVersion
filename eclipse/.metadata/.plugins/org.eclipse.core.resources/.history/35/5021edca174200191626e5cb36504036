@@ -1,0 +1,16 @@
+package Mixin.mixins;
+
+import org.spongepowered.asm.mixin.*;
+import net.minecraft.client.gui.*;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.util.ResourceLocation;
+import net.tntchina.client.util.GuiUtil;
+
+@Mixin(GuiDownloadTerrain.class)
+public abstract class MixinGuiDownloadTerrain extends GuiScreen {
+	
+	@Overwrite
+	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+
+	}
+}

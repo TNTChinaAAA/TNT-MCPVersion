@@ -1,0 +1,74 @@
+---- Minecraft Crash Report ----
+// Don't be sad, have a hug! <3
+
+Time: 19-1-26 ÏÂÎç6:42
+Description: Initializing game
+
+java.lang.NullPointerException: Initializing game
+	at me.lightcolour.client.module.world.AutoMine.onEnable(AutoMine.java:40)
+	at me.lightcolour.client.module.Module.toggle(Module.java:56)
+	at me.lightcolour.client.file.files.ModulesFile.loadFile(ModulesFile.java:61)
+	at me.lightcolour.client.Manager_Type.Manager.CustomFileManager.loadFiles(CustomFileManager.java:53)
+	at me.lightcolour.client.FireBounce.FireBounce.onEnable(FireBounce.java:49)
+	at minecraft.client.Minecraft.startGame(Minecraft.java:618)
+	at minecraft.client.Minecraft.run(Minecraft.java:438)
+	at net.minecraft.client.main.Main.main(Main.java:155)
+	at Start.main(Start.java:8)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at me.lightcolour.client.module.world.AutoMine.onEnable(AutoMine.java:40)
+	at me.lightcolour.client.module.Module.toggle(Module.java:56)
+	at me.lightcolour.client.file.files.ModulesFile.loadFile(ModulesFile.java:61)
+	at me.lightcolour.client.Manager_Type.Manager.CustomFileManager.loadFiles(CustomFileManager.java:53)
+	at me.lightcolour.client.FireBounce.FireBounce.onEnable(FireBounce.java:49)
+	at minecraft.client.Minecraft.startGame(Minecraft.java:618)
+
+-- Initialization --
+Details:
+Stacktrace:
+	at minecraft.client.Minecraft.run(Minecraft.java:438)
+	at net.minecraft.client.main.Main.main(Main.java:155)
+	at Start.main(Start.java:8)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.8.8
+	Operating System: Windows 8.1 (amd64) version 6.3
+	CPU: 2x Intel(R) Pentium(R) CPU G630 @ 2.70GHz
+	Java Version: 1.8.0_181, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 926844280 bytes (883 MB) / 1056309248 bytes (1007 MB) up to 1056309248 bytes (1007 MB)
+	JVM Flags: 3 total; -Xincgc -Xmx1024M -Xms1024M
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	Launched Version: mcp
+	LWJGL: 2.9.4
+	OpenGL: Intel(R) HD Graphics GL version 3.1.0 - Build 9.17.10.4229, Intel
+	GL Caps: Using GL 1.3 multitexturing.
+Using GL 1.3 texture combiners.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Shaders are available because OpenGL 2.1 is supported.
+VBOs are available because OpenGL 1.5 is supported.
+
+	Using VBOs: No
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
+	Type: Client (map_client.txt)
+	Resource Packs: 
+	Current Language: English (US)
+	Profiler Position: N/A (disabled)
+	CPU: 2x Intel(R) Pentium(R) CPU G630 @ 2.70GHz
+	OptiFine Version: OptiFine_1.8.8_HD_U_H8
+	Render Distance Chunks: 7
+	Mipmaps: 4
+	Anisotropic Filtering: 1
+	Antialiasing: 0
+	Multitexture: false
+	Shaders: null
+	OpenGlVersion: 3.1.0 - Build 9.17.10.4229
+	OpenGlRenderer: Intel(R) HD Graphics
+	OpenGlVendor: Intel
+	CpuCount: 2

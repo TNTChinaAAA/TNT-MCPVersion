@@ -1,0 +1,15 @@
+{
+  "toggled": false,
+  "key": 0,
+  "settings": [
+    {
+      "MovedOnce": true,
+      "TouchedGround": true,
+      "WasInvisible": true,
+      "TicksExsitedCheck": true,
+      "EnableIDCheck": true,
+      "TicksExisted": 0.0,
+      "MaximumID": 1500.0
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "toggled": false,
+  "key": 0,
+  "settings": [
+    {
+      "Delay": 50.0,
+      "Health": 6.0,
+      "Throw": true,
+      "OnlyInv": true
+    }
+  ]
+}

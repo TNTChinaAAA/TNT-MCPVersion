@@ -1,0 +1,10 @@
+{
+  "toggled": false,
+  "key": 0,
+  "settings": [
+    {
+      "SneakDelay": 300.0,
+      "SafeWalk": true
+    }
+  ]
+}

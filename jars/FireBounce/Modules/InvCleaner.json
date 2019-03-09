@@ -1,0 +1,12 @@
+{
+  "toggled": false,
+  "key": 0,
+  "settings": [
+    {
+      "OnlyInv": false,
+      "Delay": 60.0,
+      "Insant": false,
+      "ThrowAxe": true
+    }
+  ]
+}

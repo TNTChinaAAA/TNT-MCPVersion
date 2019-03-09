@@ -1,0 +1,60 @@
+package Mixin.mixins;
+
+import java.util.List;
+
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Overwrite;
+import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import com.google.common.base.Predicate;
+import com.google.common.base.Predicates;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.EntityRenderer;
+import net.minecraft.client.resources.IResourceManagerReloadListener;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItemFrame;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EntitySelectors;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.Vec3;
+import net.tntchina.client.event.EventManager;
+import net.tntchina.client.event.events.Render3DEvent;
+import net.tntchina.client.main.TNTChina;
+import net.tntchina.client.module.ModuleManager;
+import net.tntchina.client.module.modules.combat.Reach;
+import net.tntchina.client.module.modules.render.NoHurtCamera;
+
+@Mixin(EntityRenderer.class)
+public abstract class MixinEntityRenderer implements IResourceManagerReloadListener {
+
+	@Shadow
+	private Minecraft mc;
+	
+	@Shadow
+	private Entity pointedEntity;
+
+	@Inject(method = "renderWorldPass", at = @At(value = "INVOKE", target = "Lnet/minecraftforge/client/ForgeHooksClient;renderFirstPersonHand(Lnet/minecraft/client/renderer/RenderGlobal;FI)Z", shift = At.Shift.BEFORE))
+	private void renderWorldPass(int pass, float partialTicks, long finishTimeNano, CallbackInfo callbackInfo) {
+		EventManager.callEvent(new Render3DEvent());
+		TNTChina.onRender();
+	}
+
+	@Inject(method = "hurtCameraEffect", at = @At("HEAD"), cancellable = true)
+	public void NoHurtCamera(CallbackInfo callbackInfo) {
+		if (this.mc.getRenderViewEntity() == null) {
+			return;
+		}
+
+		if (this.mc.getRenderViewEntity().equals(this.mc.thePlayer)
+				&& ModuleManager.getModuleState(NoHurtCamera.class)) {
+			callbackInfo.cancel();
+		}
+	}
+}

@@ -1,0 +1,13 @@
+{
+  "toggled": true,
+  "key": 0,
+  "settings": [
+    {
+      "x": 5.0,
+      "y": 5.0,
+      "showNotches": true,
+      "directionScaling": 50.0,
+      "scale": 100.0
+    }
+  ]
+}
