@@ -1,5 +1,5 @@
 # How to install MCP?
-[Video Tutoria](https://www.youtube.com/watch?v=b2gJfKNSb1k
+[Video Tutoria](https://www.youtube.com/watch?v=b2gJfKNSb1k)
 
 # What's TNT?
 It's a minecraft hack client.Its author is TNTChina.His QQ Number is 3274578216.
